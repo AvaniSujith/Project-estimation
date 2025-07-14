@@ -2,11 +2,11 @@
 interface Props {
   label: string;
   modelValue: string | number;
-  required: boolean;
+  required?: boolean;
   disabled?: boolean;
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   disabled: false,
   required: false,
 });
@@ -29,8 +29,8 @@ const handleInput = (value: string | number) => {
       type="text"
       variant="outlined"
       :model-value="modelValue"
-      :disabled="props.disabled"
-      :required="props.required"
+      :disabled="disabled"
+      :required="required"
       @update:model-value="handleInput"
     />
   </div>
