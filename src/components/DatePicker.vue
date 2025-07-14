@@ -10,7 +10,8 @@ const emit = defineEmits<{
   (e: "update:modelValue", date: Date | null): void;
 }>();
 
-const handleDate = (date: Date | null) => {
+const handleDate = (event: Event) => {
+  const date = (event.target as HTMLInputElement).value
   emit("update:modelValue", date);
 };
 </script>
