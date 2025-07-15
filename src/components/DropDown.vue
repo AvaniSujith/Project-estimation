@@ -1,16 +1,20 @@
 <script setup lang="ts">
-interface DropDownProps{
-    label: string,
-    items: Array[],
+interface Dropdown {
+  item: string;
+  value: string;
+  index: number;
+}
+
+interface DropDownProps {
+  label: string;
+  items: Array<Dropdown>;
 }
 
 defineProps<DropDownProps>();
-
 </script>
+
 <template>
-    <v-select
-    label="label"
-    :items="items"
-    >
-    </v-select>
+  <v-select label="label" :item="item in items" :key="index">
+    {{ item }}
+  </v-select>
 </template>
