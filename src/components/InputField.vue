@@ -6,15 +6,15 @@ interface Props {
   placeholder: string;
   required?: boolean;
   disabled?: boolean;
-  minLength?: number | null;
-  maxLength?: number | null;
+  minLength?: number;
+  maxLength?: number;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   required: false,
-  minLength: null,
-  maxLength: null,
+  minLength: 0,
+  maxLength: 0,
 });
 
 const emit = defineEmits<{
@@ -42,7 +42,6 @@ const customRule = computed(() => {
         `Minimum length of input should be ${props.minLength}`
     );
   }
-
   return rule;
 });
 
