@@ -2,19 +2,15 @@
 interface Dropdown {
   item: string;
   value: string;
-  index: number;
 }
 
 interface DropDownProps {
-  label: string;
-  items: Array<Dropdown>;
+  items: Dropdown[];
 }
 
 defineProps<DropDownProps>();
 </script>
 
 <template>
-  <v-select label="label" :item="item in items" :key="index">
-    {{ item }}
-  </v-select>
+  <v-select :items="items" item-title="item" item-value="value"> </v-select>
 </template>
