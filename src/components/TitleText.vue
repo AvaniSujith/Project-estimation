@@ -1,22 +1,18 @@
 <script setup lang="ts">
 interface TitleProps {
-  title: string;
-  titleFontSize?: number;
-  titleColor?: string;
+  label: string;
+  fontSize?: number;
+  color?: string;
 }
 
 withDefaults(defineProps<TitleProps>(), {
-  titleFontSize: 18,
-  titleColor: "#000",
+  fontSize: 18,
+  color: "#000",
 });
 </script>
 
 <template>
-  <div
-    class="title"
-    :title="title"
-    :style="{ fontSize: titleFontSize + 'px', color: titleColor }"
-  >
-    {{ title }}
+  <div :label="label" :style="{ fontSize: fontSize + 'px', color: color }">
+    {{ label }}
   </div>
 </template>
