@@ -1,10 +1,22 @@
 <script setup lang="ts">
-defineProps<{
+interface TitleProps {
   title: string;
-}>();
+  titleFontSize?: number;
+  titleColor?: string;
+}
+
+withDefaults(defineProps<TitleProps>(), {
+  titleFontSize: 18,
+  titleColor: "#000",
+});
 </script>
+
 <template>
-  <div class="text-subtitle-1 text-medium-emphasis" :title="title">
+  <div
+    class="title"
+    :title="title"
+    :style="{ fontSize: titleFontSize + 'px', color: titleColor }"
+  >
     {{ title }}
   </div>
 </template>
