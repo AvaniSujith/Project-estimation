@@ -5,7 +5,7 @@ import InputField from './components/InputField.vue';
 const title = ref('')
 </script>
 <template>
-  <input-field v-model="title" placeholder=" eg.,type here"
+  <input-field v-model="title" placeholder=" eg.,type here" :min-length="5" :max-length="26" 
   />
   <p>{{ title }}</p>
 </template>
