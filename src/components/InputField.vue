@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed } from "vue";
+
 interface Props {
   modelValue: string | number;
   placeholder: string;
@@ -8,7 +10,7 @@ interface Props {
   maxLength?: number | null;
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   required: false,
   minLength: null,
@@ -19,19 +21,30 @@ const emit = defineEmits<{
   (e: "update:modelValue", value: string): void;
 }>();
 
-const customRule =(value: string) => {
-  if ((value === null) | (value === undefined) | (value === "")) {
-    rules.unshift[(value.required, "The input field cannot be empty")];
+const customRule = computed(() => {
+  const rule: ((value: string) => true | string)[] = [];
+  if (props.required) {
+    rule.push((value) => !!value || "The input should not be empty");
   }
 
-  if (value.length < minLength && value.length > maxLength) {
-    RulesSymbol.unshift[
-      (minLength,
-      maxLength,
-      `The input should have charcter count between ${minLength} - ${maxLength}`)
-    ];
+  if (props.maxLength !== null) {
+    rule.push(
+      (value) =>
+        String(value).length <= props.maxLength ||
+        `Maximum length of input should be ${props.maxLength}`
+    );
   }
-};
+
+  if (props.minLength !== null) {
+    rule.push(
+      (value) =>
+        String(value).length >= props.minLength ||
+        `Minimum length of input should be ${props.minLength}`
+    );
+  }
+
+  return rule;
+});
 
 const handleInput = (value: string) => {
   emit("update:modelValue", value);
