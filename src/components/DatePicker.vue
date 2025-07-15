@@ -1,29 +1,28 @@
 <script setup lang="ts">
 interface DateProps {
-  label: string;
-  modelValue: Date | null;
+  modelValue: string;
 }
 
 defineProps<DateProps>();
 
 const emit = defineEmits<{
-  (e: "update:modelValue", date: Date | null): void;
+  (e: "update:modelValue", date: string): void;
 }>();
 
-const handleDate = (event: Event) => {
-  const date = (event.target as HTMLInputElement).value
+const handleDate = (date: string) => {
   emit("update:modelValue", date);
 };
 </script>
+
 <template>
   <div>
-    <div class="text-subtitle-1 text-medium-emphasis">{{ label }}</div>
     <v-date-input
       :model-value="modelValue"
-      @update:model-value="handleDate"
       append-icon="mdi-menu-down"
       variant="plain"
       persistent-placeholder
+      display-format="DD/MM/YYYY"
+      @update:model-value="handleDate"
     >
     </v-date-input>
   </div>
