@@ -9,7 +9,7 @@ interface DropDownProps {
   modelValue: string;
 }
 
-defineProps<DropDownProps>();
+const { items, modelValue } = defineProps<DropDownProps>();
 
 const emit = defineEmits<{
   (e: "update:modelValue", value: string): void;
