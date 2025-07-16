@@ -17,11 +17,11 @@ const handleDate = (date: string) => {
 <template>
   <div>
     <v-date-input
-      :model-value="modelValue"
       append-inner-icon="mdi-arrow-down"
+      display-format="DD/MM/YYYY"
       variant="outlined"
       persistent-placeholder
-      display-format="DD/MM/YYYY"
+      :model-value="modelValue"
       @update:model-value="handleDate"
     >
     </v-date-input>
