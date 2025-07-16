@@ -10,6 +10,5 @@ const parsed = computed(() => new Date(date.value));
   <div>
     <date-picker v-model="date" />
     <p>{{ parsed.toLocaleDateString('en-GB') }}</p>
-
   </div>
 </template>
