@@ -3,6 +3,7 @@ interface Props {
   modelValue: string;
   placeholder: string;
   rules: ((value: string) => true | string)[];
+  type?: "text" | "number";
   required?: boolean;
   disabled?: boolean;
   minLength?: number;
@@ -28,9 +29,9 @@ const handleInput = (value: string) => {
 <template>
   <v-text-field
     density="compact"
-    type="text"
     variant="outlined"
     :model-value="modelValue"
+    :type="type"
     :disabled="disabled"
     :placeholder="placeholder"
     :required="required"
