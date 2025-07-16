@@ -6,15 +6,11 @@ interface Props {
   type?: "text" | "number";
   required?: boolean;
   disabled?: boolean;
-  minLength?: number;
-  maxLength?: number;
 }
 
 withDefaults(defineProps<Props>(), {
   disabled: false,
   required: false,
-  minLength: 0,
-  maxLength: 0,
 });
 
 const emit = defineEmits<{
@@ -36,8 +32,6 @@ const handleInput = (value: string) => {
     :placeholder="placeholder"
     :required="required"
     :rules="rules"
-    :min-length="minLength"
-    :max-length="maxLength"
     @update:model-value="handleInput"
   ></v-text-field>
 </template>
