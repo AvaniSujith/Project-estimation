@@ -1,14 +1,20 @@
 <script setup lang="ts">
- const items = [
-    {
-      name: '',
-      species: '',
-      diet: '',
-      habitat: '',
-    },
-  ]
+import type { TableItem } from "../types";
 </script>
 <template>
-    <v-date-table :items="items" >
-    </v-date-table> 
+  <v-table>
+    <thead>
+        <tr>
+      <th>Item Name</th>
+      <th>Description</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            
+        </tr>
+    </tbody>
+  </v-table>
 </template>
