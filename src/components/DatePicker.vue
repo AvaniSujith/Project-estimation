@@ -14,7 +14,7 @@ const emit = defineEmits<{
 const isClicked = ref<boolean>(false);
 
 const useIcon = computed(() => {
-  return isClicked.value === true ? "mdi-arrow-up" : "mdi-arrow-down";
+  return isClicked.value === true ? "mdi-menu-up" : "mdi-menu-down";
 });
 
 const handleDate = (date: string) => {
