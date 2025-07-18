@@ -27,8 +27,8 @@ const handleChange = (value: string) => {
 </script>
 
 <template>
-  <v-card>
-    <v-card-title variant="outlined">
+  <v-card variant="outlined">
+    <v-card-title>
       <title-text label="Payment Information" :font-size="25" />
     </v-card-title>
     <v-card-text>
@@ -40,6 +40,7 @@ const handleChange = (value: string) => {
             :items="currencies"
             @select="handleChange"
           />
+          <p>{{ selectedCurrency }}</p>
         </v-col>
         <v-col>
           <title-text label="Discount( % )" />
@@ -68,7 +69,11 @@ const handleChange = (value: string) => {
         </v-col>
         <v-col>
           <title-text label="% on Delivery" />
-          <input-field type="number" placeholder="10" :rules="[]" />
+          <input-field
+            v-model="selectedCurrency"
+            :placeholder="selectedCurreny"
+            :rules="[]"
+          />
         </v-col>
       </v-row>
       <v-row>
