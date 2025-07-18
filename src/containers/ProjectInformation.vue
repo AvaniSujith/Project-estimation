@@ -4,11 +4,7 @@ import { reactive } from "vue";
 import InputField from "../components/InputField.vue";
 import TitleText from "../components/TitleText.vue";
 
-interface ProjectInfo {
-  title: string;
-  referenceNum: string;
-  description: string;
-}
+import type { ProjectInfo } from "../types";
 
 const projectInfo = reactive<ProjectInfo>({
   title: "",
