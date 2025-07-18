@@ -71,7 +71,7 @@ const handleChange = (value: string) => {
           <title-text label="% on Delivery" />
           <input-field
             v-model="selectedCurrency"
-            :placeholder="selectedCurreny"
+            :placeholder="selectedCurrency"
             :rules="[]"
           />
         </v-col>
