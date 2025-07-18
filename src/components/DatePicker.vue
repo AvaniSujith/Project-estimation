@@ -28,6 +28,7 @@ const handleDate = (date: string) => {
       display-format="DD/MM/YYYY"
       variant="outlined"
       persistent-placeholder
+      prepend-icon=""
       :append-inner-icon="useIcon"
       :model-value="modelValue"
       @click="isClicked = !isClicked"
