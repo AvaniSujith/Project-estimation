@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  modelValue: string;
+  modelValue: string | number | null;
   placeholder: string;
   rules: ((value: string) => true | string)[];
   type?: "text" | "number";
