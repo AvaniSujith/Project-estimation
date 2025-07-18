@@ -1,20 +1,25 @@
 <script setup lang="ts">
 import type { TableItem } from "../types";
+
+defineProps<{
+  header: TableItem[];
+
+}>();
 </script>
 <template>
   <v-table>
     <thead>
-        <tr>
-      <th>Item Name</th>
-      <th>Description</th>
-      <th>Quantity</th>
-      <th>Price</th>
-    </tr>
+      <tr>
+        <th v-for="item in header">
+        </th>
+      </tr>
     </thead>
     <tbody>
-        <tr>
-            
-        </tr>
+      <tr>
+        <td> 
+          {{  }}
+        </td>
+      </tr>
     </tbody>
   </v-table>
 </template>
