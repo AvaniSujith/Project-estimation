@@ -3,6 +3,7 @@ import { reactive } from "vue";
 
 import InputField from "../components/InputField.vue";
 import TitleText from "../components/TitleText.vue";
+import { validateString } from "../helpers/InputValidation";
 
 import type { ProjectInfo } from "../types";
 
@@ -11,6 +12,7 @@ const projectInfo = reactive<ProjectInfo>({
   referenceNum: "",
   description: "",
 });
+
 </script>
 
 <template>
@@ -26,7 +28,7 @@ const projectInfo = reactive<ProjectInfo>({
           <input-field
             v-model="projectInfo.title"
             placeholder="Eg., Website Redesign"
-            :rules="[]"
+            :rules="validateString('Project title', 2, 26)"
           />
         </v-col>
         <v-col>
@@ -34,7 +36,7 @@ const projectInfo = reactive<ProjectInfo>({
           <input-field
             v-model="projectInfo.referenceNum"
             placeholder="Eg., #REF-2025-001"
-            :rules="[]"
+            :rules="validateString('Project reference', 13, 15)"
           />
         </v-col>
       </v-row>
@@ -44,7 +46,7 @@ const projectInfo = reactive<ProjectInfo>({
           <input-field
             v-model="projectInfo.description"
             placeholder="Eg., Redesign the website for ACME..."
-            :rules="[]"
+            :rules="validateString('Project description', 10, 126)"
           />
         </v-col>
       </v-row>
