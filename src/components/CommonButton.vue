@@ -1,16 +1,16 @@
 <script setup lang="ts">
+import type { IconValue } from "vuetify/lib/composables/icons.mjs";
+
 interface ButtonProps {
   text: string;
   color: string;
-  borderRadius: number;
-  backgroundColor: string;
-  icon?: string | null;
+  icon?: IconValue | undefined;
   width?: string;
 }
 
 withDefaults(defineProps<ButtonProps>(), {
   width: "100%",
-  icon: null,
+  icon: undefined,
 });
 
 const emit = defineEmits<{
@@ -24,17 +24,12 @@ const onClick = () => {
 
 <template>
   <v-btn
+    rounded-lg
+    :prepend-icon="icon"
     :color="color"
     :width="width"
-    :style="{
-      borderRadius: borderRadius + 'px',
-      backgroundColor: backgroundColor,
-    }"
     @click="onClick"
   >
-    <v-icon v-if="icon !== null" left>
-      {{ icon }}
-    </v-icon>
     {{ text }}
   </v-btn>
 </template>
